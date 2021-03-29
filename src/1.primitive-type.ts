@@ -90,13 +90,3 @@ const nul10: null = undefined
  */
 let sym: symbol
 sym = Symbol()
-
-/**
- * 字面量类型、类型推断
- */
-let num = 123
-// num1 = 'string'
-let str = 'string'
-// str1 = 123
-let bol = false
-// bol1 = 123

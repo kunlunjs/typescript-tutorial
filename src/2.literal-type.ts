@@ -9,6 +9,16 @@
  */
 
 /**
+ * 字面量类型即根据赋值自动进行类型推断
+ */
+let num = 123
+// num1 = 'string'
+let str = 'string'
+// str1 = 123
+let bol = false
+// bol1 = 123
+
+/**
  * 字面量类型
  */
 const ln: 2333 = 2333

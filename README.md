@@ -7,22 +7,24 @@ TypeScript 深入理解与实战
 1. [基本类型](./src/1.primitive-type.ts)
 2. [字面量类型（值类型）](./src/2.literal-type.ts)
 3. [枚举类型](./src/3.enum.ts)
-4. [类型推断（智能类型推断）](./src/4.type-infer.ts)
-5. [类型断言（比推断更准确）](./src/5.assert-guard.ts)
-6. [tsconfig.json 详解](./src/6.tsconfig.md)
-7. [复合类型（对象类型、函数类型）](./src/7.non-primitive-type.ts)
+4. [类型推断（智能判断类型）](./src/4.type-infer.ts)
+5. [类型断言（人为判断类型，比自动推断更准确）](./src/5.assert-guard.ts)
+6. [tsconfig.json 配置详解](./src/6.tsconfig.md)
+7. [复合类型（对象类型、函数类型、class 类型）](./src/7.non-primitive-type.ts)
 8. [函数类型](./src/8.function-type.ts)
 9. [class 类型](./src/9.class.ts)
 10. [Decorator](./src/10.decorator.ts)
 11. [泛型（动态类型）](./src/11.generic.ts)
 12. [类型逻辑（类型关系）](./src/12.type-logic.ts)
-13. [interface 与 type](./src/13.interface-type.ts)
+13. [类型定义方式：interface 与 type](./src/13.interface-type.ts)
 14. [模块](./src/14.module.ts)
-15. [react](./src/15.react.tsx)
-16. [异常处理](./src/16.error.ts)
-17. [技巧](./src/17.skill.ts)
-18. [高级工具类型](./src/18.utils-type.ts)
-19. [最佳实践](./src/19.best-practice.ts)
+15. [React 中的类型](./src/15.react.tsx)
+16. [NodeJS 中的类型](./src/16.nodejs.md)
+17. [node_modules/typescript/lib 详解](./src/17.typescript-lib.md)
+18. [错误/异常处理](./src/18.error.ts)
+19. [技巧](./src/19.skill.ts)
+20. [高级工具类型](./src/20.utils-type.ts)
+21. [最佳实践](./src/21.best-practice.ts)
 
 ## 安装依赖
 
@@ -36,7 +38,7 @@ pnpm i typescript -D
 
 `tsc --init` 命令生成初始 `tsconfig.json` 文件
 
-```json
+```js
 {
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
