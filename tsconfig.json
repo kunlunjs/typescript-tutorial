@@ -1,55 +1,19 @@
-# typescript-tutorial
-
-TypeScript 深入理解与实战
-
-## 章节
-
-1. [基本类型](./src/1.primitive-type.ts)
-2. [字面量类型（值类型）](./src/2.literal-type.ts)
-3. [枚举类型](./src/3.enum.ts)
-4. [类型推断（智能类型推断）](./src/4.type-infer.ts)
-5. [类型断言（比推断更准确）](./src/5.assert-guard.ts)
-6. [tsconfig.json 详解](./src/6.tsconfig.md)
-7. [复合类型（对象类型、函数类型）](./src/7.non-primitive-type.ts)
-8. [函数类型](./src/8.function-type.ts)
-9. [class 类型](./src/9.class.ts)
-10. [Decorator](./src/10.decorator.ts)
-11. [泛型（动态类型）](./src/11.generic.ts)
-12. [类型逻辑（类型关系）](./src/12.type-logic.ts)
-13. [interface 与 type](./src/13.interface-type.ts)
-14. [模块](./src/14.module.ts)
-15. [react](./src/15.react.tsx)
-16. [异常处理](./src/16.error.ts)
-17. [技巧](./src/17.skill.ts)
-18. [高级工具类型](./src/18.utils-type.ts)
-19. [最佳实践](./src/19.best-practice.ts)
-
-## 安装依赖
-
-```bash
-pnpm i -g typescript
-mkdir typescript-tutorial
-cd typescript-tutorial
-pnpm init -y
-pnpm i typescript -D
-```
-
-`tsc --init` 命令生成初始 `tsconfig.json` 文件
-
-```json
 {
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
 
     /* Basic Options */
     // "incremental": true,                         /* Enable incremental compilation */
-    "target": "es5" /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', or 'ESNEXT'. */,
+    "target": "ESNext" /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', or 'ESNEXT'. */,
     "module": "commonjs" /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */,
-    // "lib": [],                                   /* Specify library files to be included in the compilation. */
+    "lib": [
+      "ESNext",
+      "DOM"
+    ] /* Specify library files to be included in the compilation. */,
     // "allowJs": true,                             /* Allow javascript files to be compiled. */
     // "checkJs": true,                             /* Report errors in .js files. */
-    // "jsx": "preserve",                           /* Specify JSX code generation: 'preserve', 'react-native', 'react', 'react-jsx' or 'react-jsxdev'. */
-    // "declaration": true,                         /* Generates corresponding '.d.ts' file. */
+    "jsx": "react-jsxdev" /* Specify JSX code generation: 'preserve', 'react-native', 'react', 'react-jsx' or 'react-jsxdev'. */,
+    "declaration": true /* Generates corresponding '.d.ts' file. */,
     // "declarationMap": true,                      /* Generates a sourcemap for each corresponding '.d.ts' file. */
     // "sourceMap": true,                           /* Generates corresponding '.map' file. */
     // "outFile": "./",                             /* Concatenate and emit output to single file. */
@@ -61,15 +25,15 @@ pnpm i typescript -D
     // "noEmit": true,                              /* Do not emit outputs. */
     // "importHelpers": true,                       /* Import emit helpers from 'tslib'. */
     // "downlevelIteration": true,                  /* Provide full support for iterables in 'for-of', spread, and destructuring when targeting 'ES5' or 'ES3'. */
-    // "isolatedModules": true,                     /* Transpile each file as a separate module (similar to 'ts.transpileModule'). */
+    "isolatedModules": true /* Transpile each file as a separate module (similar to 'ts.transpileModule'). */,
 
     /* Strict Type-Checking Options */
     "strict": true /* Enable all strict type-checking options. */,
     // "noImplicitAny": true,                       /* Raise error on expressions and declarations with an implied 'any' type. */
-    // "strictNullChecks": true,                    /* Enable strict null checks. */
+    "strictNullChecks": false /* Enable strict null checks. */,
     // "strictFunctionTypes": true,                 /* Enable strict checking of function types. */
     // "strictBindCallApply": true,                 /* Enable strict 'bind', 'call', and 'apply' methods on functions. */
-    // "strictPropertyInitialization": true,        /* Enable strict checking of property initialization in classes. */
+    "strictPropertyInitialization": false /* Enable strict checking of property initialization in classes. */,
     // "noImplicitThis": true,                      /* Raise error on 'this' expressions with an implied 'any' type. */
     // "alwaysStrict": true,                        /* Parse in strict mode and emit "use strict" for each source file. */
 
@@ -83,12 +47,14 @@ pnpm i typescript -D
 
     /* Module Resolution Options */
     // "moduleResolution": "node",                  /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
-    // "baseUrl": "./",                             /* Base directory to resolve non-absolute module names. */
-    // "paths": {},                                 /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
+    "baseUrl": "./" /* Base directory to resolve non-absolute module names. */,
+    "paths": {
+      "@/*": ["src/*"]
+    } /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */,
     // "rootDirs": [],                              /* List of root folders whose combined content represents the structure of the project at runtime. */
     // "typeRoots": [],                             /* List of folders to include type definitions from. */
     // "types": [],                                 /* Type declaration files to be included in compilation. */
-    // "allowSyntheticDefaultImports": true,        /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */
+    "allowSyntheticDefaultImports": true /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */,
     "esModuleInterop": true /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */,
     // "preserveSymlinks": true,                    /* Do not resolve the real path of symlinks. */
     // "allowUmdGlobalAccess": true,                /* Allow accessing UMD globals from modules. */
@@ -100,12 +66,11 @@ pnpm i typescript -D
     // "inlineSources": true,                       /* Emit the source alongside the sourcemaps within a single file; requires '--inlineSourceMap' or '--sourceMap' to be set. */
 
     /* Experimental Options */
-    // "experimentalDecorators": true,              /* Enables experimental support for ES7 decorators. */
-    // "emitDecoratorMetadata": true,               /* Enables experimental support for emitting type metadata for decorators. */
+    "experimentalDecorators": true /* Enables experimental support for ES7 decorators. */,
+    "emitDecoratorMetadata": true /* Enables experimental support for emitting type metadata for decorators. */,
 
     /* Advanced Options */
     "skipLibCheck": true /* Skip type checking of declaration files. */,
     "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */
   }
 }
-```
